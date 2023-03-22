@@ -1,0 +1,43 @@
+@import "../../../style/variable";
+
+.itemBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.addTaskBtn {
+  font-size: 18px;
+  font-weight: 550;
+  width: 80px;
+  height: 60px;
+  border-radius: 10px;
+  border: 2px solid $green;
+  background-color: $white;
+  color: $green;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green;
+    color: $white;
+    transition: 0.5s ease;
+    border: 2px solid $darkGreen;
+    font-style: italic;
+  }
+}
+
+.modalBtn{
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}

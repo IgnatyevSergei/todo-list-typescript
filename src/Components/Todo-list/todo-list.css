@@ -1,0 +1,13 @@
+.todo-list-table-row {
+  width: 100%;
+  font-size: 22px;
+}
+.todo-list-table-row__task-title {
+  text-align: center;
+  width: 92%;
+}
+.todo-list-table-row__task-btn {
+  width: 8%;
+}
+
+/*# sourceMappingURL=todo-list.css.map */

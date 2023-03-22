@@ -1,0 +1,9 @@
+.headerTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=header-component.css.map */

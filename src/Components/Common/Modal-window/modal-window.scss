@@ -1,0 +1,59 @@
+@import "./src/style/variable";
+
+
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $modalColor;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window-container{
+  width: 300px;
+  height: 200px;
+  border: 2px solid $black;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__title{
+    width: 280px;
+    height: 40px;
+    background: $white;
+    padding-top: 3px;
+
+  }
+
+  &__description{
+    width: 280px;
+    height: 100px;
+  }
+
+  &__title,
+  &__description{
+    border-radius: 10px;
+    padding-left: 5px;
+  }
+
+
+  &__task-name,
+  &__task-description {
+    align-self: flex-start;
+    padding-left: 7px;
+    font-weight: bold;
+  }
+
+  &__btn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+}

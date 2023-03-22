@@ -1,0 +1,9 @@
+@import "../../style/variable.scss";
+
+.headerTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-family: $font;
+  margin-bottom: 20px;
+}
