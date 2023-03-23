@@ -1,13 +1,17 @@
-.todo-list-table-row {
-  width: 100%;
-  font-size: 22px;
-}
-.todo-list-table-row__task-title {
-  text-align: center;
-  width: 92%;
-}
-.todo-list-table-row__task-btn {
-  width: 8%;
-}
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @import "/src/style/variable.scss";
+ *   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   todo-list.scss 1:9  root stylesheet */
 
-/*# sourceMappingURL=todo-list.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"/src/style/variable.scss\";\a   \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   todo-list.scss 1:9  root stylesheet";
+}

@@ -1,19 +1,21 @@
 import React from "react";
-import Controller from "../Common/Cotroller/controller";
 import HeaderComponent from "../Header-component/header-component";
 import TodoList from "../Todo-list";
 import "./app.scss";
 import ModalWindow from "../Common/Modal-window";
+import {Provider} from "react-redux";
+import store from "../../store";
 
 function App() {
-  return (
-    <div className="container">
-      <HeaderComponent />
-        <ModalWindow/>
-      <Controller className="addTaskBtn" text={"Add task"} />
-      <TodoList/>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+            <div className="container">
+                <HeaderComponent/>
+                <ModalWindow/>
+                <TodoList/>
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
