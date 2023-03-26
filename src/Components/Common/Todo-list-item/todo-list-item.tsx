@@ -1,28 +1,42 @@
-import React from "react";
-import Controller from "../Cotroller/controller";
+import React, {useMemo} from "react";
 import "./todo-list-item.scss";
-import {AiFillEdit, AiFillDelete} from 'react-icons/ai'
 import {useSelector} from "react-redux";
+import {InitialStateType, TaskInfoItemType} from "../../../reducer/reducer";
+import EditTask from "../Edit-task";
+import RemoveTask from "../Remove-task";
 
-type TodoListItemPropsType = {
-  taskName: string;
-};
 
-const TodoListItem = ({ taskName }: TodoListItemPropsType) => {
-    const state = useSelector(state => state)
-    console.log(state)
+const TodoListItem = (): JSX.Element => {
+    const state = useSelector((state: InitialStateType) => state.taskInfo);
 
-  return (
-    <tr>
-      <td className='table-task-content'>{taskName}</td>
-      <td>
-        <Controller className="itemBtn" text={<AiFillEdit />} />
-      </td>
-      <td>
-        <Controller className="itemBtn" text={<AiFillDelete />} />
-      </td>
-    </tr>
-  );
+    const selectTask = useMemo(() => {
+        if (state.length === 0) {
+            return (
+                <tr>
+                    <td colSpan={3} className="table-task-content">
+                        Add task
+                    </td>
+                </tr>
+            );
+        }
+        return (
+            <>
+                {state.map((item: TaskInfoItemType) => {
+                    return (
+                        <tr key={item.id}>
+                            <td className="table-task-content">{item.taskName} <span className='hashTag'>{item.hashtag}</span> </td>
+                            <td>
+                                <EditTask id={item.id}/>
+                            </td>
+                            <td>
+                                <RemoveTask id={item.id}/>
+                            </td>
+                        </tr>)
+                })}</>
+        )
+    }, [state]);
+
+    return (<>{selectTask}</>);
 };
 
 export default TodoListItem;

@@ -1,0 +1,31 @@
+@import "../../style/variable.scss";
+
+
+.hashTag-container{
+  display: flex;
+  gap: 10px;
+}
+
+.hashTagIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 550;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid $green;
+  background-color: $white;
+  color: $green;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $green;
+    color: $white;
+    transition: 0.5s ease;
+    border: 2px solid $darkGreen;
+    font-style: italic;
+
+  }
+}
