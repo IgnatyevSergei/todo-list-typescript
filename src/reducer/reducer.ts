@@ -7,14 +7,17 @@ export type TaskInfoItemType = {
   hashtag:string
 };
 
+
+
 export type InitialStateType = {
   taskInfo: Array<TaskInfoItemType>;
-  taskIdForEditTask: number
+  taskIdForEditTask: number,
+
 };
 
 const initialState: InitialStateType = {
   taskInfo: [],
-  taskIdForEditTask: 0
+  taskIdForEditTask: 0,
 };
 
 const addTask = (
@@ -47,7 +50,8 @@ const addTask = (
   return {
     ...state,
     taskInfo: [...state.taskInfo, task],
-  };
+
+};
 };
 
 const removeTask = (
@@ -75,23 +79,37 @@ const getTaskId = (state:InitialStateType, id:number|null):InitialStateType => {
   }
 }
 
-const editTask = (state:InitialStateType, {task, descriptionTask, id, hashtag}:PayloadEditTaskType) => {
+const editTask = (state:InitialStateType, {task, descriptionTask, id}:PayloadEditTaskType) => {
+    const modernName = () => {
+        if (task.includes('#')) {
+            const hashtagIndex = task.indexOf('#')
+            const hashtagWord = task.slice(hashtagIndex)
+            return  {
+                taskName: task.slice(0, hashtagIndex),
+                taskDescription: descriptionTask,
+                id: id,
+                hashtag: hashtagWord
+            };
+        } else {
+            return {
+                taskName: task,
+                taskDescription: descriptionTask,
+                id: id,
+                hashtag: ''
+            }
+        }
+    }
   const { taskInfo } = state;
   const taskIndex = taskInfo.findIndex((item) => item.id === id);
-  const modifiedTask = {
-    taskName: task,
-    taskDescription: descriptionTask,
-    id: id,
-    hashtag: hashtag
-  }
+  const editTask = modernName()
   return {...state,
     taskInfo: [
       ...taskInfo.slice(0, taskIndex),
-        modifiedTask,
+        editTask,
       ...taskInfo.slice(taskIndex + 1),
-    ],}
+    ]
 
-}
+}}
 
 export const reducer = (
   state: InitialStateType = initialState,

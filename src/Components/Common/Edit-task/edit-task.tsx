@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Controller from "../Cotroller";
 import ModalWindow from "../Modal-window";
 import {useDispatch, useSelector} from "react-redux";
@@ -36,12 +36,12 @@ const EditTask = ({id}:EditTaskPropsType) => {
         setDescriptionTask(e.target.value);
     };
 
-    const editTask = (id:number|null) =>{
+    const getTaskId = (id:number|null) =>{
         dispatch(getTaskIdAC(id))
         setHide(!hide);
     };
 
-    const addTask = () => {
+    const editTask = () => {
         const id = state.taskInfo[state.taskIdForEditTask].id
         const hashtag = state.taskInfo[state.taskIdForEditTask].hashtag
         dispatch(editTaskAC({task, descriptionTask, id, hashtag}))
@@ -53,8 +53,8 @@ const EditTask = ({id}:EditTaskPropsType) => {
 
     return (
         <div>
-            <Controller text={<AiFillEdit/>} className="itemBtn" onClick={()=>editTask(id)}/>
-            {hide && <ModalWindow onChangeTaskName={onChangeTaskName} onChangeTasDescription={onChangeTasDescription} addTask={addTask}  hideModalWindow={hideModalWindow}  valueTaskName={task} valueTaskDescription={descriptionTask} /> }
+            <Controller text={<AiFillEdit/>} className="itemBtn" onClick={()=>getTaskId(id)}/>
+            {hide && <ModalWindow onChangeTaskName={onChangeTaskName} onChangeTasDescription={onChangeTasDescription} addTask={editTask}  hideModalWindow={hideModalWindow}  valueTaskName={task} valueTaskDescription={descriptionTask} /> }
         </div>
     );
 };
