@@ -10,7 +10,6 @@ const AddTaskBlock = () => {
     const [newTask, setNewTask] = useState("");
     const [newDescriptionTask, setNewDescriptionTask] = useState("");
 
-
     const hideModalWindow = (): void => {
         setHide(!hide);
     };
@@ -26,14 +25,13 @@ const AddTaskBlock = () => {
     };
 
     const addTask = () => {
-        if (newTask.length ==0){
-           return setHide(!hide)
+        if (newTask.length === 0) {
+            return setHide(!hide)
         }
-        dispatch(addTaskAC({ newTask, newDescriptionTask }));
+        dispatch(addTaskAC({newTask, newDescriptionTask}));
         setNewTask('')
         setHide(!hide);
     };
-
 
     return (
         <div>
@@ -42,7 +40,8 @@ const AddTaskBlock = () => {
                 className="addTaskBtn"
                 onClick={hideModalWindow}
             />
-            {hide && <ModalWindow onChangeTaskName={onChangeTaskName} onChangeTasDescription={onChangeTasDescription} addTask={addTask} hideModalWindow={hideModalWindow}/>}
+            {hide && <ModalWindow onChangeTaskName={onChangeTaskName} onChangeTasDescription={onChangeTasDescription}
+                                  addTask={addTask} hideModalWindow={hideModalWindow}/>}
         </div>
     );
 };

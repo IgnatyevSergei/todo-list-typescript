@@ -3,6 +3,7 @@ export const ADD_TASK = "ADD_TASK";
 export const EDIT_TASK = "EDIT_TASK";
 export const REMOVE_TASK = "REMOVE_TASK";
 export const GET_TASK_ID = "GET_TASK_ID";
+export const FILTER_BY_HASHTAG = "FILTER_BY_HASHTAG";
 
 type TaskType = {
   newTask: string;
@@ -53,4 +54,12 @@ export const removeTaskAC = (id: number|null): RemoveTaskType => ({
 
 export const getTaskIdAC = (id:number|null):GetTaskIdType => ({type:GET_TASK_ID, payload:id})
 
-export type ActionsType = ReturnType<typeof addTaskAC> | ReturnType<typeof editTaskAC> | ReturnType<typeof removeTaskAC> | ReturnType<typeof getTaskIdAC>
+type GetHashtagType = {
+  type: typeof FILTER_BY_HASHTAG;
+  payload: string|null;
+};
+
+
+export const getHashtagAC = (hashtag:string|null):GetHashtagType => ({type:FILTER_BY_HASHTAG, payload:hashtag})
+
+export type ActionsType = ReturnType<typeof addTaskAC> | ReturnType<typeof editTaskAC> | ReturnType<typeof removeTaskAC> | ReturnType<typeof getTaskIdAC>| ReturnType<typeof getHashtagAC>

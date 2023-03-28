@@ -24,7 +24,8 @@ const TodoListItem = (): JSX.Element => {
                 {state.map((item: TaskInfoItemType) => {
                     return (
                         <tr key={item.id}>
-                            <td className="table-task-content">{item.taskName} <span className='hashTag'>{item.hashtag}</span> </td>
+                            <td className="table-task-content">{item.taskName} <span
+                                className='hashTag'>{item.hashtag}</span></td>
                             <td>
                                 <EditTask id={item.id}/>
                             </td>

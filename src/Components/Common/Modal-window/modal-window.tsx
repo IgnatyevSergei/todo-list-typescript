@@ -7,12 +7,19 @@ type ModalPropsType = {
     onChangeTasDescription: (e: React.ChangeEvent<HTMLTextAreaElement>) => void,
     addTask: () => void,
     hideModalWindow: () => void,
-    valueTaskName?:string,
+    valueTaskName?: string,
     valueTaskDescription?: string,
 }
 
-const ModalWindow = ({onChangeTaskName, onChangeTasDescription, addTask, hideModalWindow, valueTaskName, valueTaskDescription }: ModalPropsType) => {
-    console.log(valueTaskDescription, valueTaskName)
+const ModalWindow = ({
+                         onChangeTaskName,
+                         onChangeTasDescription,
+                         addTask,
+                         hideModalWindow,
+                         valueTaskName,
+                         valueTaskDescription
+                     }: ModalPropsType) => {
+
     return (
         <div className="modal-wrapper">
             <div className="modal-window-container">

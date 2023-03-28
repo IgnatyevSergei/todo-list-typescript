@@ -7,28 +7,28 @@ import {InitialStateType} from "../../../reducer/reducer";
 import {editTaskAC, getTaskIdAC} from "../../../actions/action";
 
 type EditTaskPropsType = {
-    id:number|null
+    id: number | null
 }
 
-const EditTask = ({id}:EditTaskPropsType) => {
-    const state = useSelector((state:InitialStateType) => state)
-    const[hide, setHide]=useState<Boolean>(false)
+const EditTask = ({id}: EditTaskPropsType) => {
+    const state = useSelector((state: InitialStateType) => state)
+    const [hide, setHide] = useState<Boolean>(false)
     const dispatch = useDispatch();
     const [task, setTask] = useState<string>(``);
     const [descriptionTask, setDescriptionTask] = useState<string>('');
 
-    useEffect(()=>{
+    useEffect(() => {
         setTask((state.taskInfo[state.taskIdForEditTask].taskName))
         setDescriptionTask((state.taskInfo[state.taskIdForEditTask].taskDescription))
-    },[state])
+    }, [state])
 
     const hideModalWindow = (): void => {
         setHide(!hide);
     };
 
     const onChangeTaskName = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTask(e.target.value)}
-
+        setTask(e.target.value)
+    }
 
     const onChangeTasDescription = (
         e: React.ChangeEvent<HTMLTextAreaElement>
@@ -36,7 +36,7 @@ const EditTask = ({id}:EditTaskPropsType) => {
         setDescriptionTask(e.target.value);
     };
 
-    const getTaskId = (id:number|null) =>{
+    const getTaskId = (id: number | null) => {
         dispatch(getTaskIdAC(id))
         setHide(!hide);
     };
@@ -46,15 +46,15 @@ const EditTask = ({id}:EditTaskPropsType) => {
         const hashtag = state.taskInfo[state.taskIdForEditTask].hashtag
         dispatch(editTaskAC({task, descriptionTask, id, hashtag}))
         setHide(!hide);
-        console.log(task)
-
     }
 
 
     return (
         <div>
-            <Controller text={<AiFillEdit/>} className="itemBtn" onClick={()=>getTaskId(id)}/>
-            {hide && <ModalWindow onChangeTaskName={onChangeTaskName} onChangeTasDescription={onChangeTasDescription} addTask={editTask}  hideModalWindow={hideModalWindow}  valueTaskName={task} valueTaskDescription={descriptionTask} /> }
+            <Controller text={<AiFillEdit/>} className="itemBtn" onClick={() => getTaskId(id)}/>
+            {hide && <ModalWindow onChangeTaskName={onChangeTaskName} onChangeTasDescription={onChangeTasDescription}
+                                  addTask={editTask} hideModalWindow={hideModalWindow} valueTaskName={task}
+                                  valueTaskDescription={descriptionTask}/>}
         </div>
     );
 };

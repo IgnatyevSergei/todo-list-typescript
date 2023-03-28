@@ -1,9 +1,10 @@
 @import "../../style/variable.scss";
 
 
-.hashTag-container{
+.hashTag-container {
   display: flex;
   gap: 10px;
+  flex-direction: row;
 }
 
 .hashTagIcon {
