@@ -18,8 +18,8 @@ const EditTask = ({id}: EditTaskPropsType) => {
     const [descriptionTask, setDescriptionTask] = useState<string>('');
 
     useEffect(() => {
-        setTask((state.taskInfo[state.taskIdForEditTask].taskName))
-        setDescriptionTask((state.taskInfo[state.taskIdForEditTask].taskDescription))
+        setTask((state.taskInfo[state.taskIdForEditTask]?.taskName))
+        setDescriptionTask((state.taskInfo[state.taskIdForEditTask]?.taskDescription))
     }, [state])
 
     const hideModalWindow = (): void => {

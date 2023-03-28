@@ -78,8 +78,8 @@ const removeTask = (
             ...taskInfo.slice(taskIndex + 1),
         ],
         taskInfoFilter: [
-            ...taskInfo.slice(0, taskIndex),
-            ...taskInfo.slice(taskIndex + 1),
+            ...state.taskInfoFilter.slice(0, taskIndex),
+            ...state.taskInfoFilter.slice(taskIndex + 1),
         ]
     };
 };
@@ -118,14 +118,14 @@ const editTask = (state: InitialStateType, {task, descriptionTask, id}: PayloadE
     return {
         ...state,
         taskInfo: [
-            ...taskInfo.slice(0, taskIndex),
+            ...state.taskInfo.slice(0, taskIndex),
             editTask,
-            ...taskInfo.slice(taskIndex + 1),
+            ...state.taskInfo.slice(taskIndex + 1),
         ],
         taskInfoFilter: [
-            ...taskInfo.slice(0, taskIndex),
+            ...state.taskInfoFilter.slice(0, taskIndex),
             editTask,
-            ...taskInfo.slice(taskIndex + 1),
+            ...state.taskInfoFilter.slice(taskIndex + 1),
         ]
     }
 }
