@@ -25,12 +25,10 @@ const Hashtag = (): JSX.Element => {
 
 
     return <div className='hashTag-container'>
-        {uniqHashtag.map((el) => {
-            if (el.length > 0) {
-                return (
-                    <div key={el} onClick={handelFilterItems} className='hashTagIcon'> {el}</div>
-                )
-            }
+        {uniqHashtag.filter((el) => el.length > 0).map((el) => {
+            return (
+                <div key={el} onClick={handelFilterItems} className='hashTagIcon'> {el}</div>
+            )
         })}
     </div>
 
